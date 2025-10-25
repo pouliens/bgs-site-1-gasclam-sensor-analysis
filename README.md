@@ -360,7 +360,7 @@ Despite these limitations, the analysis provides valuable insights and establish
 - **Project**: BGS Sensor Data Analysis Dashboard
 - **Date**: March 2025
 - **Analysis Tool**: Python 3.13 with Scientific Stack
-- **Quality Assurance**: Automated statistical validation + expert review
+- **Quality Assurance**: Automated statistical validation
 
 ### Citation
 If you use this analysis or methodology, please cite:
