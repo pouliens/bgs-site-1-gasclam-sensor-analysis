@@ -414,8 +414,9 @@ html_content = f"""<!DOCTYPE html>
         }}
 
         .collapsible-content.active {{
-            max-height: 2000px;
+            max-height: 10000px;
             padding: 1rem;
+            overflow-y: auto;
         }}
 
         /* Footer */
@@ -949,7 +950,28 @@ html_content = f"""<!DOCTYPE html>
                 <li><strong>Analysis:</strong> Python 3.13, pandas, NumPy, SciPy</li>
                 <li><strong>Visualizations:</strong> Matplotlib, Seaborn, Plotly.js</li>
                 <li><strong>Dashboard:</strong> HTML5, CSS3, JavaScript</li>
+                <li><strong>AI Analysis Tool:</strong> Claude Sonnet 4.5 in Claude Code with scientific-thinking and scientific-packages skills</li>
             </ul>
+
+            <h3>How This Analysis Was Created</h3>
+            <p style="line-height: 1.8;">
+                This comprehensive analysis was generated using <strong>Claude Code</strong>, an AI-powered development environment,
+                with <strong>Claude Sonnet 4.5</strong> as the underlying AI model. The analysis leveraged specialized
+                <strong>scientific skills</strong> that automate best practices for data analysis, statistical testing, and
+                scientific visualization.
+            </p>
+            <p style="line-height: 1.8;">
+                The scientific skills used include:
+            </p>
+            <ul style="line-height: 1.8;">
+                <li><strong>scientific-thinking:exploratory-data-analysis</strong> - Automated EDA workflows for comprehensive statistical analysis</li>
+                <li><strong>scientific-packages</strong> - Python scientific computing libraries (pandas, NumPy, SciPy, Matplotlib, Seaborn)</li>
+                <li><strong>BGS Sensor Data MCP</strong> - Model Context Protocol tools for accessing BGS SensorThings API</li>
+            </ul>
+            <p style="line-height: 1.8;">
+                This approach combines human expertise in scientific method with AI capabilities for rapid data processing,
+                statistical analysis, and visualization generation, ensuring both rigor and efficiency.
+            </p>
 
             <h3>Limitations</h3>
             <ul style="line-height: 1.8;">
@@ -959,6 +981,172 @@ html_content = f"""<!DOCTYPE html>
                 <li>41-day period insufficient for robust long-term trend analysis (recommend ≥1 year)</li>
             </ul>
         </div>
+
+        <!-- Original Analysis Prompt Section -->
+        <button class="collapsible">
+            <span><i class="fas fa-code"></i> Original Analysis Prompt</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="collapsible-content">
+            <p style="margin-top: 1rem; line-height: 1.8;">
+                This analysis was generated from the following prompt, which provides a comprehensive framework for
+                scientific data analysis and visualization:
+            </p>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--bgs-secondary); margin-top: 1rem; overflow-x: auto;">
+                <pre style="white-space: pre-wrap; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; margin: 0;">Always use available 'skills' when possible. Keep the output organized.
+
+# BGS Sensor Data Analysis Project
+
+## Objective
+Analyze, explore, explain, and visualize environmental sensor data from BGS Site 1 GasClam borehole. Create a professional, interactive dashboard following UX/UI best practices.
+
+## Data Source
+- **Sensor**: BGS Site 1 GasClam
+- **Dataset**: Last 500 readings
+- **Datastreams to analyze**:
+  - ID 94: Temperature (°C)
+  - ID 102: Barometric Pressure (mbar)
+  - ID 109: Oxygen (%)
+  - ID 110: Carbon Dioxide (%)
+
+## Available MCP Tools
+You have access to these BGS sensor MCP tools:
+- about_bgs_sensor_data
+- list_sensors
+- list_locations
+- list_observed_properties
+- get_sensor_details
+- get_sensor_datastreams
+- get_datastream_observations
+
+## Requirements
+
+### 1. Data Collection & Preparation
+- Use MCP tools to fetch the last 500 observations for each datastream (IDs: 94, 102, 109, 110)
+- Clean and structure the data for analysis
+- Document any data quality issues or anomalies
+
+### 2. Exploratory Data Analysis
+- Generate comprehensive descriptive statistics for all datastreams
+- Identify temporal patterns, trends, and seasonality
+- Detect outliers and anomalies
+- Analyze correlations between different parameters (e.g., temperature vs CO2, pressure vs O2)
+- Calculate key metrics (mean, median, std dev, min/max, percentiles)
+
+### 3. Statistical Analysis
+- Perform time-series decomposition if applicable
+- Identify significant trends or changes over time
+- Test for correlations between parameters
+- Provide confidence intervals where relevant
+
+### 4. Visualizations
+Create professional, scientific-quality visualizations:
+- Time-series plots for each parameter
+- Multi-parameter overlay charts to show relationships
+- Distribution plots (histograms, box plots)
+- Correlation heatmap
+- Scatter plots for parameter relationships
+- Any other relevant visualizations
+
+### 5. Interactive Dashboard
+Create a professional HTML dashboard with:
+- **Brand Colors**: Primary: #002E40, Secondary: #AD9C70
+- **Design Requirements**:
+  - Clean, professional layout following UX/UI best practices
+  - Responsive design
+  - Clear navigation and section organization
+  - Interactive plots (use Plotly for interactivity)
+  - Data tables with key statistics
+  - Mobile-friendly if possible
+- **Content Sections**:
+  - Executive summary with key findings
+  - Individual parameter analysis
+  - Cross-parameter correlations
+  - Anomaly detection results
+  - Statistical insights
+  - Data quality notes
+
+### 6. Scientific Interpretation
+- Explain what the sensor readings indicate about subsurface conditions
+- Interpret correlations (e.g., Why might CO2 and O2 be inversely related?)
+- Identify any concerning patterns or anomalies
+- Provide context for normal vs abnormal ranges if known
+
+### 7. Documentation
+- Create a comprehensive README.md with:
+  - Project overview
+  - Data sources and methodology
+  - Key findings and insights
+  - Instructions for viewing the dashboard
+  - Technical notes
+
+## Output Structure
+Organize the work directory as follows:
+```
+bgs-sensor-analysis/
+├── data/
+│   └── raw_sensor_data.csv
+├── analysis/
+│   ├── eda_report.txt
+│   ├── statistical_analysis.txt
+│   └── findings.md
+├── visualizations/
+│   └── [individual plot files]
+├── dashboard/
+│   ├── index.html
+│   └── assets/
+├── README.md
+└── requirements.txt
+```
+
+## Best Practices
+- Use type hints and docstrings in Python code
+- Follow scientific data analysis standards
+- Ensure all visualizations have proper labels, titles, and legends
+- Include units of measurement on all plots
+- Document any assumptions or limitations
+- Make the dashboard self-explanatory for non-technical users
+
+## Deliverables
+1. Clean, well-commented analysis scripts
+2. Interactive HTML dashboard with BGS branding
+3. Individual visualization files (PNG/SVG for static, HTML for interactive)
+4. Comprehensive README.md
+5. Summary PDF report (optional but recommended)
+6. Data quality assessment document
+
+Use the scientific-packages and scientific-thinking skills to implement best practices for exploratory data analysis, statistical testing, and scientific visualization throughout this project.
+
+---
+
+## Why This Prompt Works
+
+1. **Clear Structure**: Organized into logical sections that Claude Code can follow step-by-step
+2. **Specific Requirements**: Exact datastream IDs, colors, and tools mentioned
+3. **Triggers Skills**: Explicitly mentions using available skills and scientific workflows
+4. **Professional Standards**: Emphasizes UX/UI best practices and scientific rigor
+5. **Comprehensive Scope**: Covers analysis, visualization, and interpretation
+6. **Deliverables Focused**: Clear outputs expected
+
+## Tips for Best Results
+
+1. **Install these skills first** in Claude Code:
+   - scientific-packages
+   - scientific-thinking
+   - scientific-context-initialization
+
+2. **Before running the prompt**, you might want to test the MCP connection:
+   "Use the BGS sensor MCP tools to show me what sensors are available and confirm you can access the data"
+
+3. **If Claude isn't using skills**, add this at the start:
+   "IMPORTANT: Search for and use existing skills before attempting any task. Use scientific-thinking for EDA and scientific-packages for visualization."</pre>
+                </div>
+                <p style="margin-top: 1rem; line-height: 1.8; font-style: italic; color: var(--bgs-gray);">
+                    This structured prompt ensures comprehensive analysis coverage, scientific rigor, and professional
+                    presentation standards. It demonstrates how AI tools can be effectively guided to produce
+                    publication-quality scientific work.
+                </p>
+            </div>
     </div>
 
     <!-- Modal for Image Lightbox -->
