@@ -857,44 +857,44 @@ html_content = f"""<!DOCTYPE html>
             <p>Click on any image to view full size. All visualizations are publication-quality (300 DPI).</p>
 
             <div class="gallery">
-                <div class="gallery-item" onclick="openModal('../visualizations/multiparameter_overlay.png')">
-                    <img src="../visualizations/multiparameter_overlay.png" alt="Multi-parameter overlay">
+                <div class="gallery-item" onclick="openModal('./visualizations/multiparameter_overlay.png')">
+                    <img src="./visualizations/multiparameter_overlay.png" alt="Multi-parameter overlay">
                     <div class="caption">Multi-Parameter Time Series</div>
                 </div>
-                <div class="gallery-item" onclick="openModal('../visualizations/distributions.png')">
-                    <img src="../visualizations/distributions.png" alt="Distributions">
+                <div class="gallery-item" onclick="openModal('./visualizations/distributions.png')">
+                    <img src="./visualizations/distributions.png" alt="Distributions">
                     <div class="caption">Probability Distributions</div>
                 </div>
-                <div class="gallery-item" onclick="openModal('../visualizations/correlation_heatmap.png')">
-                    <img src="../visualizations/correlation_heatmap.png" alt="Correlation heatmap">
+                <div class="gallery-item" onclick="openModal('./visualizations/correlation_heatmap.png')">
+                    <img src="./visualizations/correlation_heatmap.png" alt="Correlation heatmap">
                     <div class="caption">Correlation Matrix Heatmap</div>
                 </div>
-                <div class="gallery-item" onclick="openModal('../visualizations/boxplots.png')">
-                    <img src="../visualizations/boxplots.png" alt="Box plots">
+                <div class="gallery-item" onclick="openModal('./visualizations/boxplots.png')">
+                    <img src="./visualizations/boxplots.png" alt="Box plots">
                     <div class="caption">Box Plots with Violin Overlays</div>
                 </div>
-                <div class="gallery-item" onclick="openModal('../visualizations/scatter_matrix.png')">
-                    <img src="../visualizations/scatter_matrix.png" alt="Scatter matrix">
+                <div class="gallery-item" onclick="openModal('./visualizations/scatter_matrix.png')">
+                    <img src="./visualizations/scatter_matrix.png" alt="Scatter matrix">
                     <div class="caption">Scatter Plot Matrix</div>
                 </div>
-                <div class="gallery-item" onclick="openModal('../visualizations/oxygen_co2_relationship.png')">
-                    <img src="../visualizations/oxygen_co2_relationship.png" alt="O2 vs CO2">
+                <div class="gallery-item" onclick="openModal('./visualizations/oxygen_co2_relationship.png')">
+                    <img src="./visualizations/oxygen_co2_relationship.png" alt="O2 vs CO2">
                     <div class="caption">O₂ vs CO₂ Relationship</div>
                 </div>
-                <div class="gallery-item" onclick="openModal('../visualizations/timeseries_temperature_c.png')">
-                    <img src="../visualizations/timeseries_temperature_c.png" alt="Temperature time series">
+                <div class="gallery-item" onclick="openModal('./visualizations/timeseries_temperature_c.png')">
+                    <img src="./visualizations/timeseries_temperature_c.png" alt="Temperature time series">
                     <div class="caption">Temperature Time Series</div>
                 </div>
-                <div class="gallery-item" onclick="openModal('../visualizations/timeseries_pressure_mbar.png')">
-                    <img src="../visualizations/timeseries_pressure_mbar.png" alt="Pressure time series">
+                <div class="gallery-item" onclick="openModal('./visualizations/timeseries_pressure_mbar.png')">
+                    <img src="./visualizations/timeseries_pressure_mbar.png" alt="Pressure time series">
                     <div class="caption">Pressure Time Series</div>
                 </div>
-                <div class="gallery-item" onclick="openModal('../visualizations/timeseries_oxygen_pct.png')">
-                    <img src="../visualizations/timeseries_oxygen_pct.png" alt="Oxygen time series">
+                <div class="gallery-item" onclick="openModal('./visualizations/timeseries_oxygen_pct.png')">
+                    <img src="./visualizations/timeseries_oxygen_pct.png" alt="Oxygen time series">
                     <div class="caption">Oxygen Time Series</div>
                 </div>
-                <div class="gallery-item" onclick="openModal('../visualizations/timeseries_co2_pct.png')">
-                    <img src="../visualizations/timeseries_co2_pct.png" alt="CO2 time series">
+                <div class="gallery-item" onclick="openModal('./visualizations/timeseries_co2_pct.png')">
+                    <img src="./visualizations/timeseries_co2_pct.png" alt="CO2 time series">
                     <div class="caption">CO₂ Time Series</div>
                 </div>
             </div>
@@ -1614,6 +1614,10 @@ print(f"[OK] Dashboard created successfully!")
 print(f"  Location: {output_file}")
 print(f"  Size: {output_file.stat().st_size / 1024:.1f} KB")
 print(f"\nTo view: Open {output_file.name} in your web browser")
+print(f"\nGitHub Pages ready:")
+print(f"  [+] File saved as index.html in project root")
+print(f"  [+] All image paths use relative paths (./visualizations/)")
+print(f"  [+] No external file dependencies (except CDN)")
 print(f"\nFeatures included:")
 print(f"  [+] Interactive Plotly.js charts (zoom, pan, hover)")
 print(f"  [+] BGS brand colors throughout")
