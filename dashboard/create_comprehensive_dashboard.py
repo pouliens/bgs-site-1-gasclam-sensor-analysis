@@ -627,12 +627,6 @@ html_content = f"""<!DOCTYPE html>
             <h2><i class="fas fa-chart-area"></i> Interactive Data Visualization</h2>
             <p>Explore the sensor data with interactive charts. Hover for details, click legend to toggle series, zoom and pan to focus on specific periods.</p>
 
-            <!-- Multi-Parameter Time Series -->
-            <div class="chart-container chart-full">
-                <h3>Multi-Parameter Time Series</h3>
-                <div id="multiparamChart"></div>
-            </div>
-
             <!-- Individual Parameter Charts -->
             <div class="charts-grid">
                 <div class="chart-container">
@@ -651,6 +645,16 @@ html_content = f"""<!DOCTYPE html>
                     <h3>Carbon Dioxide Concentration (%)</h3>
                     <div id="co2Chart"></div>
                 </div>
+            </div>
+
+            <!-- Multi-Parameter Time Series -->
+            <div class="chart-container chart-full">
+                <h3>Multi-Parameter Time Series Overview</h3>
+                <p style="font-size: 0.9rem; color: var(--bgs-gray); margin-bottom: 1rem;">
+                    All four parameters displayed together in stacked subplots with synchronized zoom and pan.
+                    This layout makes it easy to spot temporal correlations between different measurements.
+                </p>
+                <div id="multiparamChart"></div>
             </div>
 
             <!-- Correlation Matrix -->
@@ -1205,85 +1209,112 @@ Use the scientific-packages and scientific-thinking skills to implement best pra
         const oxygen = sensorData.map(d => d.oxygen_pct);
         const co2 = sensorData.map(d => d.co2_pct);
 
-        // Multi-Parameter Chart with Dual Y-axes
+        // Multi-Parameter Chart with Clean Stacked Subplots
         const multiTrace1 = {{
             x: timestamps,
             y: temperature,
-            name: 'Temperature (°C)',
+            name: 'Temperature',
             type: 'scatter',
             mode: 'lines',
-            line: {{ color: TEMP_COLOR, width: 2 }},
+            line: {{ color: TEMP_COLOR, width: 1.5 }},
+            xaxis: 'x1',
             yaxis: 'y1'
         }};
 
         const multiTrace2 = {{
             x: timestamps,
             y: pressure,
-            name: 'Pressure (mbar)',
+            name: 'Pressure',
             type: 'scatter',
             mode: 'lines',
-            line: {{ color: PRESSURE_COLOR, width: 2 }},
+            line: {{ color: PRESSURE_COLOR, width: 1.5 }},
+            xaxis: 'x2',
             yaxis: 'y2'
         }};
 
         const multiTrace3 = {{
             x: timestamps,
             y: oxygen,
-            name: 'Oxygen (%)',
+            name: 'Oxygen',
             type: 'scatter',
             mode: 'lines',
-            line: {{ color: OXYGEN_COLOR, width: 2 }},
+            line: {{ color: OXYGEN_COLOR, width: 1.5 }},
+            xaxis: 'x3',
             yaxis: 'y3'
         }};
 
         const multiTrace4 = {{
             x: timestamps,
             y: co2,
-            name: 'CO₂ (%)',
+            name: 'CO₂',
             type: 'scatter',
             mode: 'lines',
-            line: {{ color: CO2_COLOR, width: 2 }},
+            line: {{ color: CO2_COLOR, width: 1.5 }},
+            xaxis: 'x4',
             yaxis: 'y4'
         }};
 
         const multiLayout = {{
-            ...commonLayout,
-            height: 500,
-            xaxis: {{ title: 'Date' }},
-            yaxis: {{
-                title: 'Temp (°C)',
-                titlefont: {{ color: TEMP_COLOR }},
-                tickfont: {{ color: TEMP_COLOR }},
-                side: 'left',
-                position: 0
+            font: {{ family: 'Inter, sans-serif' }},
+            plot_bgcolor: 'white',
+            paper_bgcolor: 'transparent',
+            height: 700,
+            showlegend: true,
+            legend: {{
+                orientation: 'h',
+                y: -0.08,
+                x: 0.5,
+                xanchor: 'center'
+            }},
+            // Temperature subplot
+            xaxis1: {{
+                domain: [0, 1],
+                anchor: 'y1',
+                showticklabels: false
+            }},
+            yaxis1: {{
+                domain: [0.78, 1],
+                anchor: 'x1',
+                title: {{ text: 'Temperature (°C)', font: {{ color: TEMP_COLOR, size: 12 }} }},
+                tickfont: {{ color: TEMP_COLOR }}
+            }},
+            // Pressure subplot
+            xaxis2: {{
+                domain: [0, 1],
+                anchor: 'y2',
+                showticklabels: false
             }},
             yaxis2: {{
-                title: 'Pressure (mbar)',
-                titlefont: {{ color: PRESSURE_COLOR }},
-                tickfont: {{ color: PRESSURE_COLOR }},
-                overlaying: 'y',
-                side: 'right',
-                position: 1
+                domain: [0.52, 0.74],
+                anchor: 'x2',
+                title: {{ text: 'Pressure (mbar)', font: {{ color: PRESSURE_COLOR, size: 12 }} }},
+                tickfont: {{ color: PRESSURE_COLOR }}
+            }},
+            // Oxygen subplot
+            xaxis3: {{
+                domain: [0, 1],
+                anchor: 'y3',
+                showticklabels: false
             }},
             yaxis3: {{
-                title: 'O₂ (%)',
-                titlefont: {{ color: OXYGEN_COLOR }},
-                tickfont: {{ color: OXYGEN_COLOR }},
-                anchor: 'free',
-                overlaying: 'y',
-                side: 'left',
-                position: 0.05
+                domain: [0.26, 0.48],
+                anchor: 'x3',
+                title: {{ text: 'Oxygen (%)', font: {{ color: OXYGEN_COLOR, size: 12 }} }},
+                tickfont: {{ color: OXYGEN_COLOR }}
+            }},
+            // CO2 subplot
+            xaxis4: {{
+                domain: [0, 1],
+                anchor: 'y4',
+                title: 'Date'
             }},
             yaxis4: {{
-                title: 'CO₂ (%)',
-                titlefont: {{ color: CO2_COLOR }},
-                tickfont: {{ color: CO2_COLOR }},
-                anchor: 'free',
-                overlaying: 'y',
-                side: 'right',
-                position: 0.95
+                domain: [0, 0.22],
+                anchor: 'x4',
+                title: {{ text: 'CO₂ (%)', font: {{ color: CO2_COLOR, size: 12 }} }},
+                tickfont: {{ color: CO2_COLOR }}
             }},
-            margin: {{ l: 80, r: 80, t: 40, b: 80 }}
+            margin: {{ l: 70, r: 40, t: 20, b: 60 }}
         }};
 
         Plotly.newPlot('multiparamChart', [multiTrace1, multiTrace2, multiTrace3, multiTrace4], multiLayout, {{responsive: true}});
@@ -1574,8 +1605,8 @@ Use the scientific-packages and scientific-thinking skills to implement best pra
 </html>
 """
 
-# Save the HTML file
-output_file = Path(__file__).parent / 'bgs_sensor_dashboard.html'
+# Save the HTML file to parent directory (for GitHub Pages)
+output_file = Path(__file__).parent.parent / 'index.html'
 with open(output_file, 'w', encoding='utf-8') as f:
     f.write(html_content)
 
