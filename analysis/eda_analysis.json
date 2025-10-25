@@ -1,0 +1,319 @@
+{
+  "basic_info": {
+    "shape": [
+      500,
+      6
+    ],
+    "columns": [
+      "timestamp",
+      "temperature_c",
+      "pressure_mbar",
+      "oxygen_pct",
+      "co2_pct",
+      "quality_status"
+    ],
+    "dtypes": {
+      "timestamp": "datetime64[ns]",
+      "temperature_c": "float64",
+      "pressure_mbar": "int64",
+      "oxygen_pct": "float64",
+      "co2_pct": "float64",
+      "quality_status": "object"
+    },
+    "memory_usage_mb": 0.04447174072265625,
+    "date_range": {
+      "start": "2025-01-30 17:43:00",
+      "end": "2025-03-13 07:43:00",
+      "duration_days": 41
+    }
+  },
+  "missing_data": {
+    "message": "No missing data found"
+  },
+  "summary_statistics": {
+    "temperature_c": {
+      "count": 500,
+      "mean": 6.0036000000000005,
+      "std": 0.41541808382488293,
+      "min": 4.9,
+      "25%": 5.7,
+      "50%": 6.0,
+      "75%": 6.3,
+      "max": 7.1,
+      "range": 2.1999999999999993,
+      "cv": 0.0691948304059036,
+      "skewness": 0.04532937961933536,
+      "kurtosis": -0.286024650844253
+    },
+    "pressure_mbar": {
+      "count": 500,
+      "mean": 1015.16,
+      "std": 11.694268332120965,
+      "min": 988.0,
+      "25%": 1005.0,
+      "50%": 1015.0,
+      "75%": 1026.0,
+      "max": 1041.0,
+      "range": 53.0,
+      "cv": 0.01151963073025037,
+      "skewness": -0.03671428969891497,
+      "kurtosis": -1.0304167308664582
+    },
+    "oxygen_pct": {
+      "count": 500,
+      "mean": 21.518,
+      "std": 1.9694856555697455,
+      "min": 16.0,
+      "25%": 20.1,
+      "50%": 21.7,
+      "75%": 23.1,
+      "max": 24.3,
+      "range": 8.3,
+      "cv": 0.09152735642577124,
+      "skewness": -0.3743926695203893,
+      "kurtosis": -0.706280238273719
+    },
+    "co2_pct": {
+      "count": 500,
+      "mean": 1.9336,
+      "std": 0.5677638166553114,
+      "min": 0.1,
+      "25%": 1.6,
+      "50%": 1.9,
+      "75%": 2.3,
+      "max": 3.5,
+      "range": 3.4,
+      "cv": 0.293630438899106,
+      "skewness": -0.09861399780011734,
+      "kurtosis": 0.07893100335149139
+    }
+  },
+  "normality_tests": {
+    "temperature_c": {
+      "shapiro_wilk": {
+        "statistic": 0.9923474978386925,
+        "p_value": 0.011514180090323553,
+        "is_normal": false
+      },
+      "anderson_darling": {
+        "statistic": 1.3599729056465435,
+        "critical_values": [
+          0.571,
+          0.651,
+          0.781,
+          0.911,
+          1.083
+        ],
+        "significance_levels": [
+          15.0,
+          10.0,
+          5.0,
+          2.5,
+          1.0
+        ]
+      },
+      "kolmogorov_smirnov": {
+        "statistic": 0.054363102244306266,
+        "p_value": 0.10033719088320348,
+        "is_normal": true
+      }
+    },
+    "pressure_mbar": {
+      "shapiro_wilk": {
+        "statistic": 0.9721265575759332,
+        "p_value": 3.718692411324745e-08,
+        "is_normal": false
+      },
+      "anderson_darling": {
+        "statistic": 4.715847987183793,
+        "critical_values": [
+          0.571,
+          0.651,
+          0.781,
+          0.911,
+          1.083
+        ],
+        "significance_levels": [
+          15.0,
+          10.0,
+          5.0,
+          2.5,
+          1.0
+        ]
+      },
+      "kolmogorov_smirnov": {
+        "statistic": 0.07994865555619413,
+        "p_value": 0.0031564920150073087,
+        "is_normal": false
+      }
+    },
+    "oxygen_pct": {
+      "shapiro_wilk": {
+        "statistic": 0.9602770343450104,
+        "p_value": 2.3048752580282163e-10,
+        "is_normal": false
+      },
+      "anderson_darling": {
+        "statistic": 4.303107615972635,
+        "critical_values": [
+          0.571,
+          0.651,
+          0.781,
+          0.911,
+          1.083
+        ],
+        "significance_levels": [
+          15.0,
+          10.0,
+          5.0,
+          2.5,
+          1.0
+        ]
+      },
+      "kolmogorov_smirnov": {
+        "statistic": 0.07889381281688523,
+        "p_value": 0.0037363886353400516,
+        "is_normal": false
+      }
+    },
+    "co2_pct": {
+      "shapiro_wilk": {
+        "statistic": 0.9943371843941248,
+        "p_value": 0.06067411700717645,
+        "is_normal": true
+      },
+      "anderson_darling": {
+        "statistic": 0.846807659865533,
+        "critical_values": [
+          0.571,
+          0.651,
+          0.781,
+          0.911,
+          1.083
+        ],
+        "significance_levels": [
+          15.0,
+          10.0,
+          5.0,
+          2.5,
+          1.0
+        ]
+      },
+      "kolmogorov_smirnov": {
+        "statistic": 0.04664616153393275,
+        "p_value": 0.21975730652172032,
+        "is_normal": true
+      }
+    }
+  },
+  "outlier_detection": {
+    "temperature_c": {
+      "iqr_method": {
+        "lower_bound": 4.800000000000001,
+        "upper_bound": 7.199999999999999,
+        "count": 0,
+        "percentage": 0.0
+      },
+      "zscore_method": {
+        "threshold": 3.0,
+        "count": 0,
+        "percentage": 0.0
+      }
+    },
+    "pressure_mbar": {
+      "iqr_method": {
+        "lower_bound": 973.5,
+        "upper_bound": 1057.5,
+        "count": 0,
+        "percentage": 0.0
+      },
+      "zscore_method": {
+        "threshold": 3.0,
+        "count": 0,
+        "percentage": 0.0
+      }
+    },
+    "oxygen_pct": {
+      "iqr_method": {
+        "lower_bound": 15.600000000000001,
+        "upper_bound": 27.6,
+        "count": 0,
+        "percentage": 0.0
+      },
+      "zscore_method": {
+        "threshold": 3.0,
+        "count": 0,
+        "percentage": 0.0
+      }
+    },
+    "co2_pct": {
+      "iqr_method": {
+        "lower_bound": 0.5500000000000005,
+        "upper_bound": 3.3499999999999996,
+        "count": 7,
+        "percentage": 1.4000000000000001
+      },
+      "zscore_method": {
+        "threshold": 3.0,
+        "count": 1,
+        "percentage": 0.2
+      }
+    }
+  },
+  "correlation_analysis": {
+    "pearson": {
+      "temperature_c": {
+        "temperature_c": 1.0,
+        "pressure_mbar": -0.2579826771117369,
+        "oxygen_pct": -0.04299299909862901,
+        "co2_pct": 0.05768799122817476
+      },
+      "pressure_mbar": {
+        "temperature_c": -0.2579826771117369,
+        "pressure_mbar": 1.0,
+        "oxygen_pct": 0.016293658010597765,
+        "co2_pct": -0.10240642085694283
+      },
+      "oxygen_pct": {
+        "temperature_c": -0.04299299909862901,
+        "pressure_mbar": 0.016293658010597765,
+        "oxygen_pct": 1.0,
+        "co2_pct": -0.35238053737483477
+      },
+      "co2_pct": {
+        "temperature_c": 0.05768799122817476,
+        "pressure_mbar": -0.10240642085694283,
+        "oxygen_pct": -0.35238053737483477,
+        "co2_pct": 1.0
+      }
+    },
+    "spearman": {
+      "temperature_c": {
+        "temperature_c": 1.0,
+        "pressure_mbar": -0.23794700586430143,
+        "oxygen_pct": -0.04699378286611973,
+        "co2_pct": 0.058538324746910245
+      },
+      "pressure_mbar": {
+        "temperature_c": -0.23794700586430143,
+        "pressure_mbar": 1.0,
+        "oxygen_pct": 0.010250474643179939,
+        "co2_pct": -0.11302303089558179
+      },
+      "oxygen_pct": {
+        "temperature_c": -0.04699378286611973,
+        "pressure_mbar": 0.010250474643179939,
+        "oxygen_pct": 1.0,
+        "co2_pct": -0.35056318551871124
+      },
+      "co2_pct": {
+        "temperature_c": 0.058538324746910245,
+        "pressure_mbar": -0.11302303089558179,
+        "oxygen_pct": -0.35056318551871124,
+        "co2_pct": 1.0
+      }
+    },
+    "strong_correlations": []
+  },
+  "insights": []
+}
