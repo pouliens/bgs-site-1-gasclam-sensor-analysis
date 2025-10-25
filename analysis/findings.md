@@ -380,6 +380,6 @@ Despite these limitations, the analysis provides valuable insights into subsurfa
 
 ---
 
-**Report Generated:** 2025-03-13
+**Report Generated:** 2025-10-25
 **Analysis Tool:** Python 3.13 with SciPy, pandas, NumPy, Matplotlib
-**Quality Assurance:** Automated statistical validation + expert review
+**Quality Assurance:** Automated statistical validation

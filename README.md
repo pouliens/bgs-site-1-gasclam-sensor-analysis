@@ -412,6 +412,4 @@ Plotly: 6.1.2
 
 ---
 
-**Dashboard Preview**: Open `dashboard/index.html` in your browser to explore the interactive analysis!
-
-**Questions?** Review the `analysis/findings.md` for detailed scientific interpretation.
+**AI Analysis** Review the `analysis/findings.md` for detailed scientific interpretation.
